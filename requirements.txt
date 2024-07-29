@@ -8,6 +8,8 @@ scipy
 transformers
 packaging
 torchaudio
+PySoundFile
+torchvision
 setuptools
 audiolm_pytorch
 tensorboardX

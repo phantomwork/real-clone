@@ -25,7 +25,8 @@ hubert_model = CustomHubert(checkpoint_path='data/models/hubert/hubert.pt').to(d
 tokenizer = CustomTokenizer.load_from_checkpoint('data/models/hubert/tokenizer.pth').to(device)  # Automatically uses the right layers
 
 # Load and pre-process the audio waveform
-audio_filepath = 'audio.wav' # the audio you want to clone (under 13 seconds)
+audio_filepath = 'G:/Projects/real-clone/output.wav' # the audio you want to clone (under 13 seconds)
+torchaudio.set_audio_backend("soundfile")
 wav, sr = torchaudio.load(audio_filepath)
 wav = convert_audio(wav, sr, model.sample_rate, model.channels)
 wav = wav.to(device)
