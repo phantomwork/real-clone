@@ -1,0 +1,14 @@
+numpy
+torch
+einops
+funcy
+tqdm
+encodec
+scipy
+transformers
+packaging
+torchaudio
+setuptools
+audiolm_pytorch
+tensorboardX
+fairseq

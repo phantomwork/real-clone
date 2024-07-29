@@ -3,11 +3,11 @@ Custom tokenizer model.
 Author: https://www.github.com/gitmylo/
 License: MIT
 """
+from __future__ import annotations
 
 import json
 import os.path
 from zipfile import ZipFile
-
 import numpy
 import torch
 from torch import nn, optim
@@ -115,12 +115,13 @@ class CustomTokenizer(nn.Module):
         if old:
             model = CustomTokenizer()
         else:
-            model = CustomTokenizer(data_from_model.hidden_size, data_from_model.input_size, data_from_model.output_size, data_from_model.version)
-        model.load_state_dict(torch.load(path))
+            model = CustomTokenizer(data_from_model.hidden_size, data_from_model.input_size,
+                                    data_from_model.output_size, data_from_model.version)
+        model.load_state_dict(torch.load(path, map_location=torch.device('cpu')))  # if only supports cpu
+        # model.load_state_dict(torch.load(path) # if cuda is available
         if map_location:
             model = model.to(map_location)
         return model
-
 
 
 class Data:
@@ -180,7 +181,8 @@ def auto_train(data_path, save_path='model.pth', load_model: str | None = None, 
         for i in range(save_epochs):
             j = 0
             for x, y in zip(data_x, data_y):
-                model_training.train_step(torch.tensor(x).to('cuda'), torch.tensor(y).to('cuda'), j % 50 == 0)  # Print loss every 50 steps
+                model_training.train_step(torch.tensor(x).to('cuda'), torch.tensor(y).to('cuda'),
+                                          j % 50 == 0)  # Print loss every 50 steps
                 j += 1
         save_p = save_path
         save_p_2 = f'{base_save_path}_epoch_{epoch}.pth'
