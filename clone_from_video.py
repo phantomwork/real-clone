@@ -64,7 +64,7 @@ from transformers import BertTokenizer
 from bark.generation import SAMPLE_RATE, preload_models, codec_decode, generate_coarse, generate_fine, generate_text_semantic
 
 # Enter your prompt and speaker here
-text_prompt = "Hello, my name is Serpy. And, uh — and I like pizza. [laughs]"
+text_prompt = "Hi there, everyone! Today we are going to talk about why you should think twice before eating burgers. Burgers might seem yummy and fun to eat, but they can be really bad for your health. Let's find out why..First, burgers are often made with lots of fatty meats. These fats, called saturated fats, can make your heart unhealthy. When you eat too many burgers, you can start to have problems with your heart. It’s like putting bad fuel into a car—the car won't run well and it might even break down. Your heart is the same way; it needs good fuel, like fruits and veggies, to work properly..Second, burgers usually come with lots of extra stuff that isn't good for you. Think about the cheese, bacon, and sauces that are often added. These toppings can have a lot of salt. Eating too much salt can make your blood pressure go up, which is not good for your body. It's like adding too much air to a balloon; one day, it might just pop..Another thing to consider is that burgers can make you gain weight. They usually have a lot of calories because of the fatty meat and other ingredients. Eating too many calories can add extra weight to your body, making it harder to run and play. This can also lead to other serious health issues like diabetes..It’s also important to remember that many burgers are made quickly and might not be fresh. They can have harmful bacteria that make you sick. You don’t want to end up spending all your fun time in bed with a stomach ache!.Instead of burgers, try eating foods that are good for you and taste great too. Make a homemade sandwich with fresh veggies, lean meat, and whole grain bread. Your body will thank you for it!.So, next time you think about grabbing a burger, remember these tips and make a better choice for your health. Stay happy and stay healthy!"
 voice_name = "output" # use your custom voice name here if you have one
 #%%
 # download and load all models
@@ -113,3 +113,4 @@ Audio(audio_array, rate=SAMPLE_RATE)
 from scipy.io.wavfile import write as write_wav
 # save audio
 filepath = "/output/audio.wav" # change this to your desired output path
+write_wav(filepath, SAMPLE_RATE, audio_array)
