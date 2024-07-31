@@ -68,6 +68,17 @@ text_prompt = "Hi there, everyone! Today we are going to talk about why you shou
 voice_name = "output" # use your custom voice name here if you have one
 #%%
 # download and load all models
+
+# wget-c https://dl.suno-models.io/bark/models/v0/text.pt -O ~ /.cache/suno/bark_v0/41a4361a0bb21b667a35fbf76a309a77.pt
+# wget-c https://dl.suno-models.io/bark/models/v0/coarse.pt -O ~ /.cache/suno/bark_v0/db7988c269f58606a4b3a3d3497c6b95.pt
+# wget-c https://dl.suno-models.io/bark/models/v0/fine.pt -O ~ /.cache/suno/bark_v0/0f6f3420c8bb574f74e75e6f7f59a510.pt
+#
+# # download large models
+#
+# wget-c https://dl.suno-models.io/bark/models/v0/text_2.pt -O ~ /.cache/suno/bark_v0/41a4361a0bb21b667a35fbf76a309a77.pt
+# wget-c https://dl.suno-models.io/bark/models/v0/coarse_2.pt -O ~ /.cache/suno/bark_v0/db7988c269f58606a4b3a3d3497c6b95.pt
+# wget-c https://dl.suno-models.io/bark/models/v0/fine_2.pt -O ~ /.cache/suno/bark_v0/0f6f3420c8bb574f74e75e6f7f59a510.pt
+
 preload_models(
     text_use_gpu=True,
     text_use_small=False,
