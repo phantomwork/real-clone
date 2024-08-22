@@ -8,7 +8,8 @@ To create a voice clone sample, you need an audio sample of around 5-12 seconds
 
 You will get the best results by making generations with your cloned voice until you find one that is really close to the source. Then use that as the new history prompt (comes from the model so should theoretically be more consistent)
 
-Note that this only generate audios less than 13 seconds.
+Note that this only can generate audios less than 13 seconds. If it's longer than 13 seconds, the generated audio is random. So Recommend you break the sentences down and generate them individually and merge them. 
+
 
 - [BARK text to speech @ SERP AI](https://serp.ai/tools/bark-text-to-speech-ai-voice-clone-app/)
 
